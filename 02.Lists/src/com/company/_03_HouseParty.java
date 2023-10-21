@@ -45,11 +45,7 @@ public class _03_HouseParty {
     }
 
     public static boolean checkList(List<String> names, String name) {
-
-        if (names.contains(name)) {
-            return true;
-        }
-        return false;
+        return names.contains(name);
     }
 
     public static void printList(List<String> names) {
