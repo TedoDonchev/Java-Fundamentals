@@ -4,6 +4,7 @@ package com.company;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class _01_Train {
 
@@ -12,7 +13,7 @@ public class _01_Train {
 
         List<Integer> wagons = Arrays.stream(scanner.nextLine().split(" "))
                 .map(Integer::parseInt)
-                .toList();
+                .collect(Collectors.toList());
 
         int capacity = Integer.parseInt(scanner.nextLine());
 
@@ -23,16 +24,24 @@ public class _01_Train {
             if (input[0].equals("Add")) {
                 wagons.add(Integer.parseInt(input[1]));
             } else {
-                int passengers = Integer.parseInt(input[1];
+                int passengers = Integer.parseInt(input[0]);
+
+                for (int i = 0; i < wagons.size(); i++) {
+                    if (wagons.get(i) + passengers <= capacity) {
+                        wagons.set(i, wagons.get(i) + passengers);
+                        break;
+                    }
+
+                }
+
 
             }
-
 
             input = scanner.nextLine().split(" ");
         }
 
-
-        System.out.println(wagons);
-
+        for (Integer wagon : wagons) {
+            System.out.printf("%d ", wagon);
+        }
     }
 }
