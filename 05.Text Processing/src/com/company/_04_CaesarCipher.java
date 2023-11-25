@@ -7,12 +7,15 @@ public class _04_CaesarCipher {
         Scanner sc = new Scanner(System.in);
 
         String input = sc.nextLine();
+        StringBuilder strBuilder = new StringBuilder();
 
         for (int i = 0; i < input.length(); i++) {
             int ascii = (int) input.charAt(i);
             ascii += 3;
             String newSymbol = Character.toString((char) ascii);
-            System.out.print(newSymbol);
+            strBuilder.append(newSymbol);
         }
+
+        System.out.println(strBuilder);
     }
 }
